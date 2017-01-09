@@ -1,0 +1,27 @@
+// Text
+//-------------------//
+
+//-- text-common --//
+.text-common-utilities() {
+  .text-left   { text-align: left   !important; }
+  .text-right  { text-align: right  !important; }
+  .text-center { text-align: center !important; }
+}
+
+//-- text-responsive --//
+.text-responsive-utilities() {
+  .breakpoints-loop(@i: 1) when (@i <= length(@breakpoints)) {
+    @breakpoint:       extract(@breakpoints, @i);
+    @breakpoint-abbrv: extract(@breakpoint-abbrvs, @i);
+    
+    @media (min-width: @breakpoint) {
+      .text-@{breakpoint-abbrv}-left   { text-align: left   !important; }
+      .text-@{breakpoint-abbrv}-right  { text-align: right  !important; }
+      .text-@{breakpoint-abbrv}-center { text-align: center !important; }
+    }
+
+    .breakpoints-loop(@i + 1);
+  }
+
+  .breakpoints-loop;
+}

@@ -1,0 +1,27 @@
+// Float
+//-------------------//
+
+//-- float-common --//
+.float-common-utilities() {
+  .float-left  { float: left   !important; }
+  .float-right { float: right  !important; }
+  .float-none  { float: none   !important; }
+}
+
+//-- float-responsive --//
+.float-responsive-utilities() {
+  .breakpoints-loop(@i: 1) when (@i <= length(@breakpoints)) {
+    @breakpoint:       extract(@breakpoints, @i);
+    @breakpoint-abbrv: extract(@breakpoint-abbrvs, @i);
+    
+    @media (min-width: @breakpoint) {
+      .float-@{breakpoint-abbrv}-left  { float: left   !important; }
+      .float-@{breakpoint-abbrv}-right { float: right  !important; }
+      .float-@{breakpoint-abbrv}-none  { float: none   !important; }
+    }
+
+    .breakpoints-loop(@i + 1);
+  }
+
+  .breakpoints-loop;
+}

@@ -1,0 +1,81 @@
+// Spacing
+//-------------------//
+
+//-- spacing-common --//
+.spacing-common-utilities() {
+  .props-loop(@i: 1) when (@i <= length(@props)) { // @props: margin, padding;
+    @prop:       extract(@props, @i);
+    @prop-abbrv: extract(@prop-abbrvs, @i);
+    
+    .spacers-loop(@j: 1) when (@j <= length(@spacers)) {
+      @spacer:       extract(@spacers, @j);
+      @spacer-value: extract(@spacer-values, @j);
+      
+      .@{prop-abbrv}-@{spacer}  { @{prop}:        @spacer-value @spacer-value !important; }
+      .@{prop-abbrv}t-@{spacer} { @{prop}-top:    @spacer-value !important; }
+      .@{prop-abbrv}r-@{spacer} { @{prop}-right:  @spacer-value !important; }
+      .@{prop-abbrv}b-@{spacer} { @{prop}-bottom: @spacer-value !important; }
+      .@{prop-abbrv}l-@{spacer} { @{prop}-left:   @spacer-value !important; }
+      .@{prop-abbrv}x-@{spacer} {
+        @{prop}-right: @spacer-value !important;
+        @{prop}-left:  @spacer-value !important;
+      }
+      .@{prop-abbrv}y-@{spacer} {
+        @{prop}-top:     @spacer-value !important;
+        @{prop}-bottom:  @spacer-value !important;
+      }
+      
+      .spacers-loop(@j + 1);
+    } // .spacers-loop
+    
+    .spacers-loop;
+    .props-loop(@i + 1);
+  } // .props-loop
+  
+  .props-loop;
+}
+
+//-- spacing-responsive --//
+.spacing-responsive-utilities() {
+  .breakpoints-loop(@i: 1) when (@i <= length(@breakpoints)) { 
+    @breakpoint:       extract(@breakpoints, @i);
+    @breakpoint-abbrv: extract(@breakpoint-abbrvs, @i);
+    
+    @media (min-width: @breakpoint) {
+      .props-loop(@j: 1) when (@j <= length(@props)) { // @props: margin, padding;
+        @prop:       extract(@props, @j);
+        @prop-abbrv: extract(@prop-abbrvs, @j);
+
+        .spacers-loop(@k: 1) when (@k <= length(@spacers)) {
+          @spacer:       extract(@spacers, @k);
+          @spacer-value: extract(@spacer-values, @k);
+
+          .@{prop-abbrv}-@{breakpoint-abbrv}-@{spacer}  { @{prop}:        @spacer-value @spacer-value !important; }
+          .@{prop-abbrv}t-@{breakpoint-abbrv}-@{spacer} { @{prop}-top:    @spacer-value !important; }
+          .@{prop-abbrv}r-@{breakpoint-abbrv}-@{spacer} { @{prop}-right:  @spacer-value !important; }
+          .@{prop-abbrv}b-@{breakpoint-abbrv}-@{spacer} { @{prop}-bottom: @spacer-value !important; }
+          .@{prop-abbrv}l-@{breakpoint-abbrv}-@{spacer} { @{prop}-left:   @spacer-value !important; }
+          .@{prop-abbrv}x-@{breakpoint-abbrv}-@{spacer} {
+            @{prop}-right: @spacer-value !important;
+            @{prop}-left:  @spacer-value !important;
+          }
+          .@{prop-abbrv}y-@{breakpoint-abbrv}-@{spacer} {
+            @{prop}-top:     @spacer-value !important;
+            @{prop}-bottom:  @spacer-value !important;
+          }
+
+          .spacers-loop((@k + 1));
+        } // .spacers-loop
+
+        .spacers-loop;
+        .props-loop((@j + 1));
+      } // .props-loop
+
+      .props-loop;
+    }
+
+    .breakpoints-loop(@i + 1);
+  } // .breakpoint-loop
+
+  .breakpoints-loop;
+}
