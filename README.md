@@ -1,6 +1,6 @@
 # Bootstrap-4-utilities
 
-Bootstrap 4 utility classes in LESS and CSS for use in Bootstrap 3 or any other project. These are very useful helper classes including common as well as responsive float, spacing and text-align classes which you can easily include in any of your project.
+Bootstrap 4 utility classes for Bootstrap 3 or any other project in LESS and CSS. These are very useful helper classes including common as well as responsive float, spacing and text-align classes which you can easily include in any of your project.
 
 ## Installation
 
