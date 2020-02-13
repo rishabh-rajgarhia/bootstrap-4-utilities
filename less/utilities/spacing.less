@@ -11,7 +11,7 @@
       @spacer:       extract(@spacers, @j);
       @spacer-value: extract(@spacer-values, @j);
       
-      .@{prop-abbrv}-@{spacer}  { @{prop}:        @spacer-value @spacer-value !important; }
+      .@{prop-abbrv}-@{spacer}  { @{prop}:        @spacer-value !important; }
       .@{prop-abbrv}t-@{spacer} { @{prop}-top:    @spacer-value !important; }
       .@{prop-abbrv}r-@{spacer} { @{prop}-right:  @spacer-value !important; }
       .@{prop-abbrv}b-@{spacer} { @{prop}-bottom: @spacer-value !important; }
@@ -50,7 +50,7 @@
           @spacer:       extract(@spacers, @k);
           @spacer-value: extract(@spacer-values, @k);
 
-          .@{prop-abbrv}-@{breakpoint-abbrv}-@{spacer}  { @{prop}:        @spacer-value @spacer-value !important; }
+          .@{prop-abbrv}-@{breakpoint-abbrv}-@{spacer}  { @{prop}:        @spacer-value !important; }
           .@{prop-abbrv}t-@{breakpoint-abbrv}-@{spacer} { @{prop}-top:    @spacer-value !important; }
           .@{prop-abbrv}r-@{breakpoint-abbrv}-@{spacer} { @{prop}-right:  @spacer-value !important; }
           .@{prop-abbrv}b-@{breakpoint-abbrv}-@{spacer} { @{prop}-bottom: @spacer-value !important; }
