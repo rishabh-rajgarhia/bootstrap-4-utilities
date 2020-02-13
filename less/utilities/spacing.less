@@ -11,18 +11,20 @@
       @spacer:       extract(@spacers, @j);
       @spacer-value: extract(@spacer-values, @j);
       
-      .@{prop-abbrv}-@{spacer}  { @{prop}:        @spacer-value !important; }
-      .@{prop-abbrv}t-@{spacer} { @{prop}-top:    @spacer-value !important; }
-      .@{prop-abbrv}r-@{spacer} { @{prop}-right:  @spacer-value !important; }
-      .@{prop-abbrv}b-@{spacer} { @{prop}-bottom: @spacer-value !important; }
-      .@{prop-abbrv}l-@{spacer} { @{prop}-left:   @spacer-value !important; }
-      .@{prop-abbrv}x-@{spacer} {
-        @{prop}-right: @spacer-value !important;
-        @{prop}-left:  @spacer-value !important;
-      }
-      .@{prop-abbrv}y-@{spacer} {
-        @{prop}-top:     @spacer-value !important;
-        @{prop}-bottom:  @spacer-value !important;
+      & when not ((@spacer = auto) and (@prop = padding)) { // to avoid adding padding auto
+        .@{prop-abbrv}-@{spacer}  { @{prop}:        @spacer-value !important; }
+        .@{prop-abbrv}t-@{spacer} { @{prop}-top:    @spacer-value !important; }
+        .@{prop-abbrv}r-@{spacer} { @{prop}-right:  @spacer-value !important; }
+        .@{prop-abbrv}b-@{spacer} { @{prop}-bottom: @spacer-value !important; }
+        .@{prop-abbrv}l-@{spacer} { @{prop}-left:   @spacer-value !important; }
+        .@{prop-abbrv}x-@{spacer} {
+          @{prop}-right: @spacer-value !important;
+          @{prop}-left:  @spacer-value !important;
+        }
+        .@{prop-abbrv}y-@{spacer} {
+          @{prop}-top:     @spacer-value !important;
+          @{prop}-bottom:  @spacer-value !important;
+        }
       }
       
       .spacers-loop(@j + 1);
@@ -50,18 +52,20 @@
           @spacer:       extract(@spacers, @k);
           @spacer-value: extract(@spacer-values, @k);
 
-          .@{prop-abbrv}-@{breakpoint-abbrv}-@{spacer}  { @{prop}:        @spacer-value !important; }
-          .@{prop-abbrv}t-@{breakpoint-abbrv}-@{spacer} { @{prop}-top:    @spacer-value !important; }
-          .@{prop-abbrv}r-@{breakpoint-abbrv}-@{spacer} { @{prop}-right:  @spacer-value !important; }
-          .@{prop-abbrv}b-@{breakpoint-abbrv}-@{spacer} { @{prop}-bottom: @spacer-value !important; }
-          .@{prop-abbrv}l-@{breakpoint-abbrv}-@{spacer} { @{prop}-left:   @spacer-value !important; }
-          .@{prop-abbrv}x-@{breakpoint-abbrv}-@{spacer} {
-            @{prop}-right: @spacer-value !important;
-            @{prop}-left:  @spacer-value !important;
-          }
-          .@{prop-abbrv}y-@{breakpoint-abbrv}-@{spacer} {
-            @{prop}-top:     @spacer-value !important;
-            @{prop}-bottom:  @spacer-value !important;
+          & when not ((@spacer = auto) and (@prop = padding)) { // to avoid adding padding auto
+            .@{prop-abbrv}-@{breakpoint-abbrv}-@{spacer}  { @{prop}:        @spacer-value !important; }
+            .@{prop-abbrv}t-@{breakpoint-abbrv}-@{spacer} { @{prop}-top:    @spacer-value !important; }
+            .@{prop-abbrv}r-@{breakpoint-abbrv}-@{spacer} { @{prop}-right:  @spacer-value !important; }
+            .@{prop-abbrv}b-@{breakpoint-abbrv}-@{spacer} { @{prop}-bottom: @spacer-value !important; }
+            .@{prop-abbrv}l-@{breakpoint-abbrv}-@{spacer} { @{prop}-left:   @spacer-value !important; }
+            .@{prop-abbrv}x-@{breakpoint-abbrv}-@{spacer} {
+              @{prop}-right: @spacer-value !important;
+              @{prop}-left:  @spacer-value !important;
+            }
+            .@{prop-abbrv}y-@{breakpoint-abbrv}-@{spacer} {
+              @{prop}-top:     @spacer-value !important;
+              @{prop}-bottom:  @spacer-value !important;
+            }
           }
 
           .spacers-loop((@k + 1));
