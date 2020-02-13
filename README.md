@@ -134,6 +134,7 @@ Where size is one of:
 * `3` - (by default) for classes that set the `margin` or `padding` to 1rem
 * `4` - (by default) for classes that set the `margin` or `padding` to 1.5rem
 * `5` - (by default) for classes that set the `margin` or `padding` to 3rem
+* `auto` - for classes that set the `margin` to auto
 
 
 #### Common Spacing Classes Examples:
@@ -202,6 +203,13 @@ _**Margin**_
 `.ml-5` | `.ml-sm-5` | `.ml-md-5` | `.ml-lg-5` 
 `.mx-5` | `.mx-sm-5` | `.mx-md-5` | `.mx-lg-5` 
 `.my-5` | `.my-sm-5` | `.my-md-5` | `.my-lg-5`  
+`.m-auto` | `.m-sm-auto` | `.m-md-auto` | `.m-lg-auto` 
+`.mt-auto` | `.mt-sm-auto` | `.mt-md-auto` | `.mt-lg-auto` 
+`.mr-auto` | `.mr-sm-auto` | `.mr-md-auto` | `.mr-lg-auto` 
+`.mb-auto` | `.mb-sm-auto` | `.mb-md-auto` | `.mb-lg-auto` 
+`.ml-auto` | `.ml-sm-auto` | `.ml-md-auto` | `.ml-lg-auto` 
+`.mx-auto` | `.mx-sm-auto` | `.mx-md-auto` | `.mx-lg-auto` 
+`.my-auto` | `.my-sm-auto` | `.my-md-auto` | `.my-lg-auto`  
 
 
 _**Padding**_
