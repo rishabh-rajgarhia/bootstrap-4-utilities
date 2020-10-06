@@ -1,14 +1,14 @@
 // Text
 //-------------------//
 
-//-- text-common --//
+//-- text-alignment-common --//
 .text-common-utilities() {
   .text-left   { text-align: left   !important; }
   .text-right  { text-align: right  !important; }
   .text-center { text-align: center !important; }
 }
 
-//-- text-responsive --//
+//-- text-alignment-responsive --//
 .text-responsive-utilities() {
   .breakpoints-loop(@i: 1) when (@i <= length(@breakpoints)) {
     @breakpoint:       extract(@breakpoints, @i);
@@ -25,3 +25,11 @@
 
   .breakpoints-loop;
 }
+
+//-- text-weight-and-italics --//
+.font-weight-light   { font-weight: $font-weight-light !important; }
+.font-weight-lighter { font-weight: $font-weight-lighter !important; }
+.font-weight-normal  { font-weight: $font-weight-normal !important; }
+.font-weight-bold    { font-weight: $font-weight-bold !important; }
+.font-weight-bolder  { font-weight: $font-weight-bolder !important; }
+.font-italic         { font-style: italic !important; }
