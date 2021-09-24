@@ -3,9 +3,18 @@
 
 //-- text-common --//
 .text-common-utilities() {
+  //-- text-alignment --//
   .text-left   { text-align: left   !important; }
   .text-right  { text-align: right  !important; }
   .text-center { text-align: center !important; }
+
+  //-- font-weight-and-italics(only common, no responsive utilities required) --//
+  .font-weight-light   { font-weight: @font-weight-light !important; }
+  .font-weight-lighter { font-weight: @font-weight-lighter !important; }
+  .font-weight-normal  { font-weight: @font-weight-normal !important; }
+  .font-weight-bold    { font-weight: @font-weight-bold !important; }
+  .font-weight-bolder  { font-weight: @font-weight-bolder !important; }
+  .font-italic         { font-style: italic !important; }
 }
 
 //-- text-responsive --//
@@ -15,6 +24,7 @@
     @breakpoint-abbrv: extract(@breakpoint-abbrvs, @i);
     
     @media (min-width: @breakpoint) {
+      //-- text-alignment --//
       .text-@{breakpoint-abbrv}-left   { text-align: left   !important; }
       .text-@{breakpoint-abbrv}-right  { text-align: right  !important; }
       .text-@{breakpoint-abbrv}-center { text-align: center !important; }
