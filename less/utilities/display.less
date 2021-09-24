@@ -1,0 +1,79 @@
+// Display
+//-------------------//
+
+//-- display-common --//
+.display-common-utilities() {
+    .d-none {
+        display: none !important;
+    }
+    .d-inline {
+        display: inline !important;
+    }
+    .d-inline-block {
+        display: inline-block !important;
+    }
+    .d-block {
+        display: block !important;
+    }
+    .d-table {
+        display: table !important;
+    }
+    .d-table-row {
+        display: table-row !important;
+    }
+    .d-table-cell {
+        display: table-cell !important;
+    }
+    .d-flex {
+        display: -ms-flexbox !important;
+        display: flex !important;
+    }
+    .d-inline-flex {
+        display: -ms-inline-flexbox !important;
+        display: inline-flex !important;
+    }
+  }
+  
+  //-- display-responsive --//
+  .display-responsive-utilities() {
+    .breakpoints-loop(@i: 1) when (@i <= length(@breakpoints)) {
+      @breakpoint:       extract(@breakpoints, @i);
+      @breakpoint-abbrv: extract(@breakpoint-abbrvs, @i);
+      
+      @media (min-width: @breakpoint) {
+        .d-@{breakpoint-abbrv}-none {
+            display: none !important;
+        }
+        .d-@{breakpoint-abbrv}-inline {
+            display: inline !important;
+        }
+        .d-@{breakpoint-abbrv}-inline-block {
+            display: inline-block !important;
+        }
+        .d-@{breakpoint-abbrv}-block {
+            display: block !important;
+        }
+        .d-@{breakpoint-abbrv}-table {
+            display: table !important;
+        }
+        .d-@{breakpoint-abbrv}-table-row {
+            display: table-row !important;
+        }
+        .d-@{breakpoint-abbrv}-table-cell {
+            display: table-cell !important;
+        }
+        .d-@{breakpoint-abbrv}-flex {
+            display: -ms-flexbox !important;
+            display: flex !important;
+        }
+        .d-@{breakpoint-abbrv}-inline-flex {
+            display: -ms-inline-flexbox !important;
+            display: inline-flex !important;
+        }
+      }
+  
+      .breakpoints-loop(@i + 1);
+    }
+  
+    .breakpoints-loop;
+  }
